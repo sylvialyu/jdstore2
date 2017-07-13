@@ -1,9 +1,16 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
+
     <div class="navbar-header">
       <a href="/" class="navbar-brand">JDStore</a>
     </div>
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collase-1">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to("Products", products_path) %></li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
           <li><%= link_to("注册", cancel_user_registration_path	) %></li>
@@ -23,6 +30,8 @@
           </li>
         <% end %>
       </ul>
+
     </div>
+
   </div>
 </nav>
