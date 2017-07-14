@@ -10,4 +10,18 @@ class CartItemsController < ApplicationController
     redirect_to :back
   end
 
+  def update
+    @cart = current_cart
+    @cart_item = @cart.cart_items.find_by_product_id(params[:id])
+    @cart_item.update(cart_item_params)
+    flash[:notice] = "数量更新成功"
+    redirect_to carts_path
+  end
+
+  private
+
+  def cart_item_params
+    params.require(:cart_item).permit(:quantity)
+  end
+
 end
